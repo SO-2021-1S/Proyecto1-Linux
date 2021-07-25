@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proyect.views import cambiarnombre, index, index2, test, atras, abrir, crear, cambiarnombre, eliminar, copiar, cortar, pegar
+from proyect.views import cambiarnombre, index2, atras, abrir, crear, cambiarnombre, eliminar, copiar, cortar, pegar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index2/', index),
-    path('test/', test),
+    path('index2/', index2),
     path('index/<Porta>/<Ruta>/', index2),
     path('crear/<Porta>/<Ruta>/', crear),
     path('abrir/<Porta>/<Ruta>/', abrir),
