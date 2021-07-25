@@ -158,23 +158,23 @@ def pegar(request, Porta, Ruta):
 
     comando = ''
     if portasplit[0]=='Copy' and portasplit[1]=='Directorio':
-        comando = "xcopy /E /I /C /Y /H %s %s" % (ruta1, os.path.join(ruta2, portasplit[-1]))
+        comando = "cp -r %s %s" % (ruta1, os.path.join(ruta2, portasplit[-1]))
         p = Popen(comando, shell=True)
         p.wait()
 
     elif portasplit[0]=='Copy' and portasplit[1]=='Archivo':
-        comando = "copy %s %s" % (ruta1, os.path.join(ruta2,''))
+        comando = "cp -r %s %s" % (ruta1, os.path.join(ruta2,''))
         p = Popen(comando, shell=True)
         p.wait()
 
     elif portasplit[0]=='Cut' and portasplit[1]=='Directorio':
-        comando = "move %s %s" % (ruta1, os.path.join(ruta2, ''))
+        comando = "mv %s %s" % (ruta1, os.path.join(ruta2, ''))
         p = Popen(comando, shell=True)
         p.wait()
         Porta = 'test'
 
     elif portasplit[0]=='Cut' and portasplit[1]=='Archivo':
-        comando = "move %s %s" % (ruta1, os.path.join(ruta2,''))
+        comando = "mv %s %s" % (ruta1, os.path.join(ruta2,''))
         p = Popen(comando, shell=True)
         p.wait()
         Porta = 'test'
