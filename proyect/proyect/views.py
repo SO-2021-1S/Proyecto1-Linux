@@ -90,13 +90,13 @@ def cambiarnombre(request, Porta, Ruta):
         if request.GET.get('Name', '')!='' and request.GET.get('Nuevo', '')!='':
 
             if request.GET.get('Tipo', '')=='Directorio':
-                comando = "mv %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')),request.GET.get('Nuevo', ''))
+                comando = "mv %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')), os.path.join(rutashow,request.GET.get('Nuevo', '')))
                 run(comando, shell=True)
             if request.GET.get('Tipo', '')=='Archivo':
                 Nombre = request.GET.get('Nombre', '')
                 if '.' not in Nombre:
                     Nombre = Nombre + '.txt'
-                comando = "mv %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')),request.GET.get('Nuevo', ''))
+                comando = "mv %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')), os.path.join(rutashow,request.GET.get('Nuevo', '')))
                 run(comando, shell=True)
 
     return redirect('/index2/'+ Porta + '/' + Ruta)
@@ -114,11 +114,11 @@ def eliminar(request, Porta, Ruta):
         if request.GET.get('Name', '')!='':
 
             if request.GET.get('Tipo', '')=='Directorio':
-                comando = "rd /S /Q %s" % os.path.join(rutashow, request.GET.get('Name', ''))
+                comando = "rm -rf %s" % os.path.join(rutashow, request.GET.get('Name', ''))
                 p = Popen(comando, shell=True)
                 p.wait()
             if request.GET.get('Tipo', '')=='Archivo':
-                comando = "del %s" % os.path.join(rutashow, request.GET.get('Name', ''))
+                comando = "rm -rf %s" % os.path.join(rutashow, request.GET.get('Name', ''))
                 p = Popen(comando, shell=True)
                 p.wait()
 
