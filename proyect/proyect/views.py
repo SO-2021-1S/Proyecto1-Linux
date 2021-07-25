@@ -7,7 +7,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-def index(request, Porta, Ruta):
+def index2(request, Porta, Ruta):
 
 #Define la ruta actual
     rutashow = ''
@@ -90,13 +90,13 @@ def cambiarnombre(request, Porta, Ruta):
         if request.GET.get('Name', '')!='' and request.GET.get('Nuevo', '')!='':
 
             if request.GET.get('Tipo', '')=='Directorio':
-                comando = "ren %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')),request.GET.get('Nuevo', ''))
+                comando = "mv %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')),request.GET.get('Nuevo', ''))
                 run(comando, shell=True)
             if request.GET.get('Tipo', '')=='Archivo':
                 Nombre = request.GET.get('Nombre', '')
                 if '.' not in Nombre:
                     Nombre = Nombre + '.txt'
-                comando = "ren %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')),request.GET.get('Nuevo', ''))
+                comando = "mv %s %s" % (os.path.join(rutashow, request.GET.get('Name', '')),request.GET.get('Nuevo', ''))
                 run(comando, shell=True)
 
     return redirect('/index2/'+ Porta + '/' + Ruta)

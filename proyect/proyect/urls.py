@@ -19,7 +19,7 @@ from proyect.views import cambiarnombre, index, index2, test, atras, abrir, crea
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index),
+    path('index2/', index),
     path('test/', test),
     path('index/<Porta>/<Ruta>/', index2),
     path('crear/<Porta>/<Ruta>/', crear),
