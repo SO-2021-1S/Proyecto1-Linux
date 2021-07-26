@@ -22,5 +22,5 @@ def permits(request):
 def showpermits(request, rutashow):
   if request.GET.get('Name', '')=='':
     comando = "ls -ld %s" % os.path.join(rutashow, request.GET.get('Nombre', ''))
-    return getoutput(comando, shell=True)[1:10].split('')
+    return getoutput(comando)[1:10].split('')
  
