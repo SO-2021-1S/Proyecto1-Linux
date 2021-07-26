@@ -41,7 +41,8 @@
 									<tbody>
 										<tr valign="middle">
 											<td>
-												<form action="/atras/{{ Porta }}/{{ RutaTest }}" method="GET" name="ver" id="ver">
+												<form action="/atras/{{ Porta }}/{{ RutaTest }}" method="GET" name="ver"
+													id="ver">
 													<input name="atras" type="submit" id="atras" value=" < " 
 													{% if RutaTest == 'test' %} disabled="disabled" {% endif %}>
 												</form>
@@ -49,9 +50,10 @@
 													<input type="submit" name="Crear" value="Crear" tabindex="4"
 														class="special">
 												</form>
-												<form action="/pegar/{{ Porta }}/{{ RutaTest }}" method="GET" name="pegar" id="pegar">
-													<input name="pegar" type="submit" id="pegar" tabindex="3" value="pegar"
-													{% if not Paste %} disabled="disabled" {% endif %}>
+												<form action="/pegar/{{ Porta }}/{{ RutaTest }}" method="GET"
+													name="pegar" id="pegar">
+													<input name="pegar" type="submit" id="pegar" tabindex="3" value="pegar" 
+													{% if not Paste %} disabled="disabled" {% endif	%}>
 												</form>
 											</td>
 										</tr>
@@ -63,9 +65,9 @@
 								<thead>
 									<tr>
 										{% if subfolder or archives %}
-											<th>Nombre</th>
+										<th>Nombre</th>
 										{% else %}
-											<th>Esta carpeta está vacia</th>
+										<th>Esta carpeta está vacia</th>
 										{% endif %}
 									</tr>
 								</thead>
@@ -102,40 +104,46 @@
 
 			<!-- Opciones -->
 			{% name request as name %}
-			{% tipe request as tipe %}
+			{% type request as type %}
 
 			<article class="options" id="opc" name="opc">
 
-				{% if tipe == 'Directorio' %}
-					<form class="options" action="/abrir/{{ Porta }}/{{ RutaTest }}" method="GET" name="abrir" id="abrir">
-						
-						<input name="Name" type="hidden" id="Name" value="{{ name }}">
-						<input class="option" type="submit" name="abrir" value="abrir">
+				{% if type == 'Directorio' %}
+				<form class="options" action="/abrir/{{ Porta }}/{{ RutaTest }}" method="GET" name="abrir" id="abrir">
 
-					</form>
+					<input name="Name" type="hidden" id="Name" value="{{ name }}">
+					<input class="option" type="submit" name="abrir" value="abrir">
+
+				</form>
 				{% endif %}
-				
-				<form class="options" action="/copiar/{{ Porta }}/{{ RutaTest }}" method="GET" name="copiar" id="copiar">
-					
-					<input name="Tipo" type="hidden" value="{{ tipe }}">
+
+				<form class="options" action="/copiar/{{ Porta }}/{{ RutaTest }}" method="GET" name="copiar"
+					id="copiar">
+
+					<input name="Tipo" type="hidden" value="{{ type }}">
 					<input name="Name" type="hidden" id="Name" value="{{ name }}">
 					<input class="option" type="submit" name="Copiar" value="Copiar">
 
 				</form>
-				<form class="options" action="/cortar/{{ Porta }}/{{ RutaTest }}/" method="GET" name="opciones" id="opciones">
+				<form class="options" action="/cortar/{{ Porta }}/{{ RutaTest }}/" method="GET" name="opciones"
+					id="opciones">
 
-					<input name="Tipo" type="hidden" value="{{ tipe }}">
+					<input name="Tipo" type="hidden" value="{{ type }}">
 					<input name="Name" type="hidden" id="Name" value="{{ name }}">
 					<input class="option" type="submit" name="Cortar" value="Cortar">
 
 				</form>
-				<form class="options" action="#" method="GET" name="opciones" id="opciones">
+				<form class="options" action="#permisos" method="GET" name="opciones" id="opciones">
 
+					<input name="Name" type="hidden" id="Name" value="{{ name }}">
+					<input name="Permisos" type="hidden" id="Permisos" value="Ver">
 					<input class="option" type="submit" name="VerPermisos" value="Ver Permisos">
 
 				</form>
-				<form class="options" action="#" method="GET" name="opciones" id="opciones">
-
+				<form class="options" action="#permisos" method="GET" name="opciones" id="opciones">
+					
+					<input name="Name" type="hidden" id="Name" value="{{ name }}">
+					<input name="Permisos" type="hidden" id="Permisos" value="Cambiar">
 					<input class="option" type="submit" name="CambiarPermisos" value="Cambiar Permisos">
 
 				</form>
@@ -144,9 +152,10 @@
 					<input class="option" type="submit" name="CambiarPropietario" value="Cambiar Propietario">
 
 				</form>
-				<form class="options" action="/eliminar/{{ Porta }}/{{ RutaTest }}" method="GET" name="eliminar" id="eliminar">
+				<form class="options" action="/eliminar/{{ Porta }}/{{ RutaTest }}" method="GET" name="eliminar"
+					id="eliminar">
 
-					<input name="Tipo" type="hidden" value="{{ tipe }}">
+					<input name="Tipo" type="hidden" value="{{ type }}">
 					<input name="Name" type="hidden" id="Name" value="{{ name }}">
 					<input class="option" type="submit" name="Eliminar" value="Eliminar">
 
@@ -189,13 +198,14 @@
 			</article>
 
 			<!-- Cambiar Nombre -->
-			{% tipe request as tipe %}
+			{% type request as type %}
 			<article id="cambiarnombre" name="cambiarnombre">
 				<h2 class="major">Cambiar Nombre</h2>
-				<form action="/cambiarnombre/{{ Porta }}/{{ RutaTest }}" method="GET" name="cambiarnombre" id="cambiarnombre">
-					
+				<form action="/cambiarnombre/{{ Porta }}/{{ RutaTest }}" method="GET" name="cambiarnombre"
+					id="cambiarnombre">
+
 					<input name="Name" type="hidden" id="Name" value="{{ name }}" />
-					<input name="Tipo" type="hidden" id="Tipo" value="{{ tipe }}" />
+					<input name="Tipo" type="hidden" id="Tipo" value="{{ type }}" />
 
 					<div class="field complete">
 						<label>Nuevo Nombre</label>
@@ -211,48 +221,62 @@
 				</form>
 			</article>
 
+			<!-- Permisos -->
+			{% name request as name %}
+			{% type request as type %}
+			{% permits request as permits %}
+			{% showpermits request RutaTest as permits %}
+			<article id="permisos" name="permisos">
 
-			<!-- Eliminar -->
-			<article id="eliminar">
-				<h2 class="major">ELIMINAR cita </h2>
-				<form action="" method="POST" name="Eliminar2" id="Eliminar2">
-					<div class="field half first">
-						<label> Número cita </label>
-						<pre><code><input name="NumeroCita" type="hidden" id="NumeroCita" value="<?php echo $row_RecordsetVerCita['NumeroCita']; ?>"></code></pre>
-					</div>
-					<div class="field half ">
-						<label> fecha </label>
-						<pre><code><?php echo $row_RecordsetVerCita['Fecha']; ?></code></pre>
-					</div>
-					<div class="field half first">
-						<label> hora </label>
-						<pre><code><?php echo $row_RecordsetVerCita['Hora']; ?></code></pre>
-					</div>
-					<div class="field half">
-						<label> estado </label>
-						<pre><code><?php echo $row_RecordsetVerCita['Estado']; ?></code></pre>
-					</div>
+				{% if permits == "Ver" %}
+					<h2 class="major">Ver Permisos</h2>
+				{% elif permits == "Cambiar" %}
+					<h2 class="major">Cambiar Permisos</h2>
+				{% endif %}
+				
+				<form action="/permisos/{{ Porta }}/{{ RutaTest }}" method="GET" name="permisos"
+					id="permisos">
+
+					<input name="Name" type="hidden" id="Name" value="{{ name }}" />
+					<input name="Tipo" type="hidden" id="Tipo" value="{{ type }}" />
+
 					<div class="field complete">
-						<label> paciente </label>
-						<pre><code><?php echo $row_RecordsetVerPaciente['Paciente']; ?></code></pre>
+						<label>Permisos de Usuario</label>
+						<pre><code><input name="read1" type="checkbox" id="read1" /><label for="read1">Lectura</label></code></pre>
+						<pre><code><input name="write1" type="checkbox" id="write1" /><label for="write1">Escritura</label></code></pre>
+						<pre><code><input name="exe1" type="checkbox" id="exe1" /><label for="exe1">Ejecución</label></code></pre>
 					</div>
+
 					<div class="field complete">
-						<label>tipo consulta </label>
-						<pre><code><?php echo $row_RecordsetVerTipoConsulta['Descripcion']; ?></code></pre>
+						<label>Permisos de Grupo</label>
+						<pre><code><input name="read2" type="checkbox" id="read2" /><label for="read2">Lectura</label></code></pre>
+						<pre><code><input name="write2" type="checkbox" id="write2" /><label for="write2">Escritura</label></code></pre>
+						<pre><code><input name="exe2" type="checkbox" id="exe2" /><label for="exe2">Ejecución</label></code></pre>
 					</div>
+
+					<div class="field complete">
+						<label>Permisos de Otros</label>
+						<pre><code><input name="read3" type="checkbox" id="read3" /><label for="read3">Lectura</label></code></pre>
+						<pre><code><input name="write3" type="checkbox" id="write3" /><label for="write3">Escritura</label></code></pre>
+						<pre><code><input name="exe3" type="checkbox" id="exe3" /><label for="exe3">Ejecución</label></code></pre>
+					</div>
+
 					<center>
-						<input type="submit" name="Eliminar" value="Eliminar" tabindex="1" class="special">
-						<a href="Citas.php?Codigo=<?php echo $row_RecordsetPaciente['Identificacion']; ?>">
-							<input name="Cancelar" type="button" id="Cancelar" tabindex="2" value="Cancelar"></a>
+						{% if permits == "Cambiar" %}
+							<input type="submit" name="Cambiar" value="Cambiar" tabindex="1" class="special">
+						{% endif %}
+						<a href="#">
+							<input name="Volver" type="button" id="Volver" tabindex="2" value="Volver">
+						</a>
 					</center>
 				</form>
 			</article>
 
-	<!-- Scripts -->
-	<script src="{% static 'assets2/js/jquery.min.js' %}"></script>
-	<script src="{% static 'assets2/js/skel.min.js' %}"></script>
-	<script src="{% static 'assets2/js/util.js' %}"></script>
-	<script src="{% static 'assets2/js/main.js' %}"></script>
+			<!-- Scripts -->
+			<script src="{% static 'assets2/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets2/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets2/js/util.js' %}"></script>
+			<script src="{% static 'assets2/js/main.js' %}"></script>
 
 </body>
 
