@@ -242,41 +242,24 @@
 
 					<div class="field complete">
 						<label>Permisos de Usuario</label>
-						<pre><code><input name="read1" type="checkbox" id="read1" {% if showpermits.0 == 'r' %} checked {% endif %} />
-							<label for="read1">Lectura</label>
-						</code></pre>
-						<pre><code><input name="write1" type="checkbox" id="write1" {% if showpermits.1 == 'w' %} checked {% endif %} />
-							<label for="write1">Escritura</label>
-						</code></pre>
-						<pre><code><input name="exe1" type="checkbox" id="exe1" {% if showpermits.2 == 'x' %} checked {% endif %} />
-							<label for="exe1">Ejecución</label>
-						</code></pre>
+						<label>{{ showpermits }}</label>
+						<pre><code><input name="read1" type="checkbox" id="read1" {% if showpermits.1 == 'w' %} checked {% endif %} /><label for="read1">Lectura</label></code></pre>
+						<pre><code><input name="write1" type="checkbox" id="write1" {% if showpermits.1 == 'w' %} checked {% endif %} /><label for="write1">Escritura</label></code></pre>
+						<pre><code><input name="exe1" type="checkbox" id="exe1" {% if showpermits.2 == 'x' %} checked {% endif %} /><label for="exe1">Ejecución</label></code></pre>
 					</div>
 
 					<div class="field complete">
 						<label>Permisos de Grupo</label>
-						<pre><code><input name="read2" type="checkbox" id="read2" {% if showpermits.4 == 'r' %} checked {% endif %}/>
-							<label for="read2">Lectura</label>
-						</code></pre>
-						<pre><code><input name="write2" type="checkbox" id="write2" {% if showpermits.5 == 'w' %} checked {% endif %}/>
-							<label for="write2">Escritura</label>
-						</code></pre>
-						<pre><code><input name="exe2" type="checkbox" id="exe2" {% if showpermits.6 == 'x' %} checked {% endif %}/>
-							<label for="exe2">Ejecución</label>
-						</code></pre>
+						<pre><code><input name="read2" type="checkbox" id="read2" {% if showpermits.4 == 'r' %} checked {% endif %}/><label for="read2">Lectura</label></code></pre>
+						<pre><code><input name="write2" type="checkbox" id="write2" {% if showpermits.5 == 'w' %} checked {% endif %}/><label for="write2">Escritura</label></code></pre>
+						<pre><code><input name="exe2" type="checkbox" id="exe2" {% if showpermits.6 == 'x' %} checked {% endif %}/><label for="exe2">Ejecución</label></code></pre>
 					</div>
 
 					<div class="field complete">
 						<label>Permisos de Otros</label>
-						<pre><code><input name="read3" type="checkbox" id="read3" {% if showpermits.7 == 'r' %} checked {% endif %} />
-							<label for="read3">Lectura</label>
-						</code></pre>
-						<pre><code><input name="write3" type="checkbox" id="write3" {% if showpermits.8 == 'w' %} checked {% endif %}/>
-							<label for="write3">Escritura</label>
-						</code></pre>
-						<pre><code><input name="exe3" type="checkbox" id="exe3" {% if showpermits.9 == 'x' %} checked {% endif %}/>
-							<label for="exe3">Ejecución</label>
-						</code></pre>
+						<pre><code><input name="read3" type="checkbox" id="read3" {% if showpermits.7 == 'r' %} checked {% endif %} /><label for="read3">Lectura</label></code></pre>
+						<pre><code><input name="write3" type="checkbox" id="write3" {% if showpermits.8 == 'w' %} checked {% endif %}/><label for="write3">Escritura</label></code></pre>
+						<pre><code><input name="exe3" type="checkbox" id="exe3" {% if showpermits.9 == 'x' %} checked {% endif %}/><label for="exe3">Ejecución</label></code></pre>
 					</div>
 
 					<center>
