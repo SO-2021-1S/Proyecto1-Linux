@@ -220,7 +220,7 @@ def cambiarpropietario(request, Porta, Ruta):
         
     if request.GET:
         if request.GET.get('Name', '')!='' and request.GET.get('Nuevo', '')!='':
-            comando = "chown %s %s" % (request.GET.get('Nuevo', ''), os.path.join(rutashow, request.GET.get('Name', '')))
+            comando = "chown -R %s %s" % (request.GET.get('Nuevo', ''), os.path.join(rutashow, request.GET.get('Name', '')))
             run(comando, shell=True)
 
     return redirect('/index2/'+ Porta + '/' + Ruta)
