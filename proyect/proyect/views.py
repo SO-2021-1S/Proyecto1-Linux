@@ -209,4 +209,4 @@ def cambiarpermisos(request, Porta, Ruta):
         #run(comando, shell=True)
 
     #return redirect('/index2/' + Porta + '/' + Ruta)
-    return HttpResponse(request.GET.get('read1', '')+request.GET.get('write1', '')+request.GET.get('exe1', ''))
+    return HttpResponse(request.GET.get('read1', ''))
