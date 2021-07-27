@@ -207,6 +207,7 @@ def cambiarpermisos(request, Porta, Ruta):
         #num3 = number[request.GET.get('read3', '')+request.GET.get('write3', '')+request.GET.get('exe3', '')]
         #comando = "chmod %s %s" % (num1+num2+num3, os.path.join(rutashow, request.GET.get('Name', '')))
         #run(comando, shell=True)
+        comando = "%s" % request.GET.get('read1', '')
 
     #return redirect('/index2/' + Porta + '/' + Ruta)
-    return HttpResponse(request.GET.get('read1', ''))
+    return HttpResponse(comando)
