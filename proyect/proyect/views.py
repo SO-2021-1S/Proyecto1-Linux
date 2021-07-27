@@ -180,4 +180,33 @@ def pegar(request, Porta, Ruta):
         Porta = 'test'
 
     return redirect('/index2/' + Porta + '/' + Ruta)
-    #return HttpResponse(comando)
+
+#Vista Cambiar Permisos
+
+number = {
+    '---' : '0',
+    '--x' : '1',
+    '-w-' : '2',
+    '-wx' : '3',
+    'r--' : '4',
+    'r-x' : '5',
+    'rw-' : '6',
+    'rwx' : '7',
+}
+
+def cambiarpermisos(request, Porta, Ruta):
+
+    rutashow = ''
+    rutasplit = Ruta.split('-')
+    for rut in rutasplit:
+        rutashow = os.path.join(rutashow, rut)
+        
+    if request.GET:
+        num1 = number[request.GET.get('read1', '')+request.GET.get('write1', '')+request.GET.get('exe1', '')]
+        num2 = number[request.GET.get('read2', '')+request.GET.get('write2', '')+request.GET.get('exe2', '')]
+        num3 = number[request.GET.get('read3', '')+request.GET.get('write3', '')+request.GET.get('exe3', '')]
+        #comando = "chmod %s %s" % (num1+num2+num3, os.path.join(rutashow, request.GET.get('Name', '')))
+        #run(comando, shell=True)
+
+    #return redirect('/index2/' + Porta + '/' + Ruta)
+    return HttpResponse(request.GET.get('read1', '')+request.GET.get('write1', '')+request.GET.get('exe1', ''))

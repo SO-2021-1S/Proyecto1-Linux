@@ -242,24 +242,23 @@
 
 					<div class="field complete">
 						<label>Permisos de Usuario</label>
-						<label>{{ showpermits }}</label>
-						<pre><code><input name="read1" type="checkbox" id="read1" {% if showpermits.0 == 'r' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read1">Lectura</label></code></pre>
-						<pre><code><input name="write1" type="checkbox" id="write1" {% if showpermits.1 == 'w' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write1">Escritura</label></code></pre>
-						<pre><code><input name="exe1" type="checkbox" id="exe1" {% if showpermits.2 == 'x' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe1">Ejecución</label></code></pre>
+						<pre><code><input name="read1" type="checkbox" id="read1" {% if showpermits.0 == 'r' %} checked value="{{showpermits.0}}" endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read1">Lectura</label></code></pre>
+						<pre><code><input name="write1" type="checkbox" id="write1" {% if showpermits.1 == 'w' %} checked value="{{showpermits.1}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write1">Escritura</label></code></pre>
+						<pre><code><input name="exe1" type="checkbox" id="exe1" {% if showpermits.2 == 'x' %} checked value="{{showpermits.2}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe1">Ejecución</label></code></pre>
 					</div>
 
 					<div class="field complete">
 						<label>Permisos de Grupo</label>
-						<pre><code><input name="read2" type="checkbox" id="read2" {% if showpermits.3 == 'r' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read2">Lectura</label></code></pre>
-						<pre><code><input name="write2" type="checkbox" id="write2" {% if showpermits.4 == 'w' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write2">Escritura</label></code></pre>
-						<pre><code><input name="exe2" type="checkbox" id="exe2" {% if showpermits.5 == 'x' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe2">Ejecución</label></code></pre>
+						<pre><code><input name="read2" type="checkbox" id="read2" {% if showpermits.3 == 'r' %} checked value="{{showpermits.3}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read2">Lectura</label></code></pre>
+						<pre><code><input name="write2" type="checkbox" id="write2" {% if showpermits.4 == 'w' %} checked value="{{showpermits.4}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write2">Escritura</label></code></pre>
+						<pre><code><input name="exe2" type="checkbox" id="exe2" {% if showpermits.5 == 'x' %} checked value="{{showpermits.5}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe2">Ejecución</label></code></pre>
 					</div>
 
 					<div class="field complete">
 						<label>Permisos de Otros</label>
-						<pre><code><input name="read3" type="checkbox" id="read3" {% if showpermits.6 == 'r' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read3">Lectura</label></code></pre>
-						<pre><code><input name="write3" type="checkbox" id="write3" {% if showpermits.7 == 'w' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write3">Escritura</label></code></pre>
-						<pre><code><input name="exe3" type="checkbox" id="exe3" {% if showpermits.8 == 'x' %} checked {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe3">Ejecución</label></code></pre>
+						<pre><code><input name="read3" type="checkbox" id="read3" {% if showpermits.6 == 'r' %} checked value="{{showpermits.6}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read3">Lectura</label></code></pre>
+						<pre><code><input name="write3" type="checkbox" id="write3" {% if showpermits.7 == 'w' %} checked value="{{showpermits.7}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write3">Escritura</label></code></pre>
+						<pre><code><input name="exe3" type="checkbox" id="exe3" {% if showpermits.8 == 'x' %} checked value="{{showpermits.8}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe3">Ejecución</label></code></pre>
 					</div>
 
 					<center>
