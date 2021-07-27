@@ -21,6 +21,6 @@ def permits(request):
 @register.simple_tag
 def showpermits(request, rutashow):
   if request.GET.get('Name', '')=='':
-    comando = "ls -ld %s" % os.path.join(rutashow, request.GET.get('Nombre', ''))
+    comando = "ls -ld %s" % os.path.join(rutashow, request.GET.get('Name', ''))
     return list(getoutput(comando)[1:10])
  
