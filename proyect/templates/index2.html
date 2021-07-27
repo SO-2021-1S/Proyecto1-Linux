@@ -272,6 +272,31 @@
 				</form>
 			</article>
 
+			<!-- Cambiar Propietario -->
+			{% type request as type %}
+			{% owner request RutaTest as owner %}
+			<article id="cambiarpropietario" name="cambiarpropietario">
+				<h2 class="major">Cambiar Propietario</h2>
+				<form action="/cambiarpropietario/{{ Porta }}/{{ RutaTest }}" method="GET" name="cambiarpropietario"
+					id="cambiarpropietario">
+
+					<input name="Name" type="hidden" id="Name" value="{{ name }}" />
+					<input name="Tipo" type="hidden" id="Tipo" value="{{ type }}" />
+
+					<div class="field complete">
+						<label>Nuevo Propietario</label>
+						<input name="Nuevo" type="text" id="Nuevo" required="required" value="{{ owner }}"/>
+					</div>
+
+					<center>
+						<input type="submit" name="Cambiar" value="Cambiar" tabindex="1" class="special">
+						<a href="#">
+							<input name="Volver" type="button" id="Volver" tabindex="2" value="Volver">
+						</a>
+					</center>
+				</form>
+			</article>
+
 			<!-- Scripts -->
 			<script src="{% static 'assets2/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets2/js/skel.min.js' %}"></script>

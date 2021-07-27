@@ -3,7 +3,7 @@ from django.template import Template, Context, loader
 from django.shortcuts import redirect, render
 from pathlib import Path
 from subprocess import check_output, run, Popen, call, PIPE
-import os
+import os, getpass
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -209,3 +209,18 @@ def cambiarpermisos(request, Porta, Ruta):
         run(comando, shell=True)
 
     return redirect('/index2/' + Porta + '/' + Ruta)
+
+#Vista Cambiar Propietario
+def cambiarnombre(request, Porta, Ruta):
+
+    rutashow = ''
+    rutasplit = Ruta.split('-')
+    for rut in rutasplit:
+        rutashow = os.path.join(rutashow, rut)
+        
+    if request.GET:
+        if request.GET.get('Name', '')!='' and request.GET.get('Nuevo', '')!='':
+            comando = "chown %s %s" % (request.GET.get('Nuevo', ''), os.path.join(rutashow, request.GET.get('Name', '')))
+            run(comando, shell=True)
+
+    return redirect('/index2/'+ Porta + '/' + Ruta)

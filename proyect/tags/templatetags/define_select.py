@@ -28,4 +28,15 @@ def showpermits(request, Ruta):
   if request.GET.get('Name', '')!='':
     comando = "ls -ld %s" % os.path.join(rutashow, request.GET.get('Name', ''))
     return list(getoutput(comando)[1:11])
+
+@register.simple_tag
+def owner(request, Ruta):
+  rutashow = ''
+  rutasplit = Ruta.split('-')
+  for rut in rutasplit:
+    rutashow = os.path.join(rutashow, rut)
+
+  if request.GET.get('Name', '')!='':
+    comando = "ls -ld %s" % os.path.join(rutashow, request.GET.get('Name', ''))
+    return getoutput(comando).split()[2]
  

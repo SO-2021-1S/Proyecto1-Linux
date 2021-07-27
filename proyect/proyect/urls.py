@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proyect.views import cambiarnombre, index2, atras, abrir, crear, cambiarnombre, eliminar, copiar, cortar, pegar, cambiarpermisos
+from proyect.views import cambiarnombre, index2, atras, abrir, crear, cambiarnombre, eliminar, copiar, cortar, pegar, cambiarpermisos, cambiarpropietario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +28,5 @@ urlpatterns = [
     path('copiar/<Porta>/<Ruta>/', copiar),
     path('cortar/<Porta>/<Ruta>/', cortar),
     path('pegar/<Porta>/<Ruta>/', pegar),
-    path('cambiarpermisos/<Porta>/<Ruta>/', cambiarpermisos),
+    path('cambiarpropietario/<Porta>/<Ruta>/', cambiarpropietario),
 ]
