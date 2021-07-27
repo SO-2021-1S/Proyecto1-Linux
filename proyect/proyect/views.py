@@ -202,9 +202,9 @@ def cambiarpermisos(request, Porta, Ruta):
         rutashow = os.path.join(rutashow, rut)
         
     if request.GET:
-        num1 = number[request.GET.get('read1', '')+request.GET.get('write1', '')+request.GET.get('exe1', '')]
-        num2 = number[request.GET.get('read2', '')+request.GET.get('write2', '')+request.GET.get('exe2', '')]
-        num3 = number[request.GET.get('read3', '')+request.GET.get('write3', '')+request.GET.get('exe3', '')]
+        #num1 = number[request.GET.get('read1', '')+request.GET.get('write1', '')+request.GET.get('exe1', '')]
+        #num2 = number[request.GET.get('read2', '')+request.GET.get('write2', '')+request.GET.get('exe2', '')]
+        #num3 = number[request.GET.get('read3', '')+request.GET.get('write3', '')+request.GET.get('exe3', '')]
         #comando = "chmod %s %s" % (num1+num2+num3, os.path.join(rutashow, request.GET.get('Name', '')))
         #run(comando, shell=True)
 
