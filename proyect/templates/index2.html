@@ -242,7 +242,7 @@
 
 					<div class="field complete">
 						<label>Permisos de Usuario</label>
-						<pre><code><input name="read1" type="checkbox" id="read1" {% if showpermits.0 == 'r' %} checked value="{{showpermits.0}}" endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read1">Lectura</label></code></pre>
+						<pre><code><input name="read1" type="checkbox" id="read1" {% if showpermits.0 == 'r' %} checked value="{{showpermits.0}}" z{% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="read1">Lectura</label></code></pre>
 						<pre><code><input name="write1" type="checkbox" id="write1" {% if showpermits.1 == 'w' %} checked value="{{showpermits.1}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="write1">Escritura</label></code></pre>
 						<pre><code><input name="exe1" type="checkbox" id="exe1" {% if showpermits.2 == 'x' %} checked value="{{showpermits.2}}" {% endif %} {% if permits == "Ver" %} disabled="disabled" {% endif %}/><label for="exe1">Ejecución</label></code></pre>
 					</div>
