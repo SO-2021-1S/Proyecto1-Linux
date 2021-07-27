@@ -211,7 +211,7 @@ def cambiarpermisos(request, Porta, Ruta):
     return redirect('/index2/' + Porta + '/' + Ruta)
 
 #Vista Cambiar Propietario
-def cambiarnombre(request, Porta, Ruta):
+def cambiarpropietario(request, Porta, Ruta):
 
     rutashow = ''
     rutasplit = Ruta.split('-')
