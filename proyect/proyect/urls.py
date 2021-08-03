@@ -28,5 +28,6 @@ urlpatterns = [
     path('copiar/<Porta>/<Ruta>/', copiar),
     path('cortar/<Porta>/<Ruta>/', cortar),
     path('pegar/<Porta>/<Ruta>/', pegar),
+    path('cambiarpermisos/<Porta>/<Ruta>/', cambiarpermisos),
     path('cambiarpropietario/<Porta>/<Ruta>/', cambiarpropietario),
 ]
